@@ -56,7 +56,7 @@ async function enviar() {
   }
 
   try {
-    const resposta = await fetch("http://localhost:3000/rsvp", {
+    const resposta = await fetch("https://convite-backend-fhuk.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nome })
