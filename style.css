@@ -157,6 +157,25 @@ input {
   margin-top: 10px;
 }
 
+/* ===== CAMADAS ===== */
+.personagens {
+  position: relative;
+  z-index: 1;
+}
+
+.personagens img {
+  width: 120px;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* POSIÇÕES - Desktop */
+.monica { left: 5%; top: 50%; }
+.cebolinha { right: 5%; top: 45%; }
+.magali { left: 25%; top: 70%; }
+.cascao { right: 25%; top: 75%; }
+
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
 
@@ -168,11 +187,14 @@ input {
 
   #contador { font-size: 10px; padding: 0 10px; }
 
-  .personagens img { width: 80px; }
-  
+  .personagens img { 
+    width: 80px;
+    /* Empurra os personagens mais para baixo no mobile */
+  }
 
-  .monica { left: 2%; top: 55%; }
-  .cebolinha { right: 2%; top: 50%; }
-  .magali { left: 15%; top: 75%; }
-  .cascao { right: 15%; top: 80%; }
+  /* POSIÇÕES MOBILE */
+  .monica { left: 2%; top: 65%; }
+  .cebolinha { right: 2%; top: 60%; }
+  .magali { left: 15%; top: 85%; }
+  .cascao { right: 15%; top: 90%; }
 }
