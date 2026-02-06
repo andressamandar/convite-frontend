@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     music.play().catch(() => {});
   }, { once: true });
 
-  // ⏳ CONTAGEM REGRESSIVA
+  // ⏳ CONTADOR
   const contador = document.getElementById("contador");
   const dataFesta = new Date("2026-02-27T17:00:00").getTime();
 
@@ -28,57 +28,59 @@ document.addEventListener("DOMContentLoaded", function () {
       `⏳ Faltam ${dias} dias, ${horas}h ${minutos}m ${segundos}s!`;
   }, 1000);
 
-});
-
-
-// 🪟 ABRIR MODAL
-function abrirModal() {
-  document.getElementById("modal").style.display = "block";
-}
-
-// ❌ FECHAR MODAL AO CLICAR FORA
-window.onclick = function (event) {
+  // 🪟 ABRIR MODAL
+  const btnConfirmar = document.querySelector(".btn-confirmar");
   const modal = document.getElementById("modal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
 
+  btnConfirmar.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
 
-// 📩 ENVIAR RSVP
-async function enviar() {
-  const nomeInput = document.getElementById("nome");
-  const nome = nomeInput.value.trim();
+  // ❌ FECHAR MODAL AO CLICAR FORA
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 
-  if (!nome) {
-    alert("Digite o nome 😊");
-    return;
-  }
+  // 📩 ENVIAR RSVP COM CONFETE
+  const btnEnviar = modal.querySelector("button");
+  btnEnviar.addEventListener("click", async () => {
+    const nomeInput = document.getElementById("nome");
+    const nome = nomeInput.value.trim();
 
-  try {
-    const resposta = await fetch("https://convite-backend-fhuk.onrender.com/rsvp", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nome })
-    });
+    if (!nome) {
+      alert("Digite o nome 😊");
+      return;
+    }
 
+    try {
+      const resposta = await fetch("https://convite-backend-fhuk.onrender.com/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome })
+      });
 
-    if (!resposta.ok) throw new Error("Erro no servidor");
+      if (!resposta.ok) throw new Error("Erro no servidor");
 
-    // 🎉 Confete
-    confetti({
-      particleCount: 180,
-      spread: 120,
-      origin: { y: 0.6 }
-    });
+      // 🎉 Confete ao clicar em Enviar
+      confetti({
+        particleCount: 200,
+        spread: 160,
+        origin: { y: 0.6 },
+        gravity: 0.8,
+        scalar: 1.2
+      });
 
-    alert("Presença confirmada! 🎉");
+      alert("Presença confirmada! 🎉");
 
-    document.getElementById("modal").style.display = "none";
-    nomeInput.value = "";
+      modal.style.display = "none";
+      nomeInput.value = "";
 
-  } catch (erro) {
-    alert("Erro ao conectar ao servidor 😢\nVerifique se o backend está rodando.");
-    console.error("ERRO RSVP:", erro);
-  }
-}
+    } catch (erro) {
+      alert("Erro ao conectar ao servidor 😢\nVerifique se o backend está rodando.");
+      console.error("ERRO RSVP:", erro);
+    }
+  });
+
+});
