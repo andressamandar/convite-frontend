@@ -106,7 +106,7 @@ input {
   border-radius: 10px;
 }
 
-/* ===== PERSONAGENS ===== */
+/* ===== PERSONAGENS - DESKTOP ===== */
 .personagens {
   position: absolute;
   width: 100%;
@@ -123,7 +123,7 @@ input {
   z-index: 1;
 }
 
-/* ===== POSIÇÃO DESKTOP ===== */
+/* Posição desktop */
 .monica { bottom: 30%; left: 10%; }
 .cebolinha { bottom: 30%; right: 10%; }
 .magali { top: 30%; left: 20%; width: 100px; }
@@ -136,16 +136,24 @@ input {
   100% { transform: translateY(0px); }
 }
 
-/* ===== RESPONSIVO - CELULAR ===== */
+/* ===== RESPONSIVO CELULAR ===== */
 @media (max-width: 600px) {
   h1 { font-size: 1.8rem; }
-  .personagens img { width: 80px; }
-
-  /* Personagens grudados no box */
-  .monica { top: calc(50% - 50px); left: calc(50% - 120px); }
-  .cebolinha { top: calc(50% - 50px); right: calc(50% - 120px); }
-  .magali { top: calc(50% - 60px); left: calc(50% + 100px); width: 70px; }
-  .cascao { top: calc(50% - 60px); right: calc(50% + 100px); width: 70px; }
-
   .info { padding: 15px; }
+
+  /* Personagens abaixo do box */
+  .personagens {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  .personagens img {
+    position: relative;
+    width: 70px;
+    animation: flutuar 3s ease-in-out infinite;
+  }
 }
