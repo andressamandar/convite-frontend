@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Aniversário da Agnes 🎉</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<audio id="bg-music" loop muted>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <h1>🎈 Aniversário da Agnes 🎈</h1>
+
+   <div class="info">
+    <p>🗓 27/02 às 17:00</p>
+    <p>📍 Av. Itamarati 1094, Vila Curuçá - Santo André</p>
+    <p>🎉 Salão de festas dentro do Habib’s</p>
+
+    <div id="contador"></div> <!-- CONTADOR AGORA DENTRO -->
+  </div>
+
+
+  <div class="personagens">
+    <img src="monica.png" class="float monica">
+    <img src="cebolinha.png" class="float cebolinha">
+    <img src="magali.png" class="float magali">
+    <img src="cascao.png" class="float cascao">
+  </div>
+
+  <button onclick="abrirModal()">Confirmar Presença</button>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h2>Quem vai à festa? 🎂</h2>
+    <input type="text" id="nome" placeholder="Nome de todos da família que vão comparecer.">
+    <button onclick="enviar()">Enviar</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

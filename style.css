@@ -1,0 +1,178 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Comic Neue', cursive;
+  background: url("fundo.png") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* ===== ESTRUTURA ===== */
+.container {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* ===== CAMADAS ===== */
+.personagens {
+  position: relative;
+  z-index: 1;
+}
+
+.personagens img {
+  width: 120px;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===== TÍTULO ===== */
+h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 48px;
+  color: #e60000;
+  text-shadow:
+    -3px -3px 0 #ffd400,
+     3px -3px 0 #ffd400,
+    -3px  3px 0 #ffd400,
+     3px  3px 0 #ffd400,
+     0px  4px 8px rgba(0,0,0,0.25);
+  margin-top: 30px;
+  position: relative;
+  z-index: 3;
+}
+
+/* ===== INFORMAÇÕES ===== */
+.info {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 22px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #a7015c, #f752ac);
+  display: inline-block;
+  padding: 18px 30px;
+  border-radius: 25px;
+  box-shadow: 0 6px 15px rgb(255, 219, 103);
+  margin-top: 15px;
+  color: #ffffff;
+}
+
+
+/* ===== CONTADOR ===== */
+#contador {
+  margin-top: 12px;
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 18px;
+  color: #ff0202;
+
+  text-shadow:
+    -1px -1px 0 #ffd400,
+     1px -1px 0 #ffd400,
+    -1px  1px 0 #ffd400,
+     1px  1px 0 #ffd400;
+
+  letter-spacing: 1px;
+
+  text-align: center;      /* 👈 centraliza o texto */
+  width: 100%;             /* 👈 ocupa a largura da caixa */
+  display: block;
+}
+.info {
+  text-align: center;
+}
+
+
+
+/* ===== BOTÃO ===== */
+button {
+  margin-top: 25px;
+  padding: 15px 30px;
+  font-size: 20px;
+  background: #328a77;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 5px #02553c;
+  cursor: pointer;
+  transition: 0.2s;
+  position: relative;
+  z-index: 3;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* ===== ANIMAÇÃO PERSONAGENS ===== */
+.float {
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* POSIÇÕES */
+.monica { left: 5%; top: 50%; }
+.cebolinha { right: 5%; top: 45%; }
+.magali { left: 25%; top: 70%; }
+.cascao { right: 25%; top: 75%; }
+
+/* ===== MODAL CENTRALIZADO ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  width: 90%;
+  max-width: 350px;
+  border-radius: 20px;
+  text-align: center;
+  animation: aparecer 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+input {
+  padding: 10px;
+  width: 90%;
+  border-radius: 10px;
+  border: 2px solid #ff4081;
+  margin-top: 10px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+
+  h1 { font-size: 32px; }
+
+  .info { font-size: 18px; width: 90%; }
+
+  button { width: 85%; font-size: 18px; }
+
+  #contador { font-size: 10px; padding: 0 10px; }
+
+  .personagens img { width: 80px; }
+  
+
+  .monica { left: 2%; top: 55%; }
+  .cebolinha { right: 2%; top: 50%; }
+  .magali { left: 15%; top: 75%; }
+  .cascao { right: 15%; top: 80%; }
+}
