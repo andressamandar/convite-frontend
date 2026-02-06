@@ -56,11 +56,12 @@ async function enviar() {
   }
 
   try {
-    const resposta = await fetch("https://convite-backend-fhuk.onrender.com", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome })
+    const resposta = await fetch("https://convite-backend-fhuk.onrender.com/rsvp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nome })
     });
+
 
     if (!resposta.ok) throw new Error("Erro no servidor");
 
