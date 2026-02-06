@@ -136,24 +136,28 @@ input {
   100% { transform: translateY(0px); }
 }
 
-/* ===== RESPONSIVO CELULAR ===== */
+/* Responsivo - celular */
 @media (max-width: 600px) {
-  h1 { font-size: 1.8rem; }
-  .info { padding: 15px; }
-
-  /* Personagens abaixo do box */
   .personagens {
-    position: relative;
-    width: auto;
-    height: auto;
-    margin-top: 15px;
+    position: relative; /* agora abaixo do box */
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px; /* espaço entre os personagens */
+    margin-top: 20px; /* distância do box */
+    height: auto;
   }
+
   .personagens img {
-    position: relative;
-    width: 70px;
+    width: 70px; 
     animation: flutuar 3s ease-in-out infinite;
+    position: relative; /* remove o absolute para não sobrepor */
+  }
+
+  /* remove posições individuais */
+  .monica, .cebolinha, .magali, .cascao {
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
   }
 }
